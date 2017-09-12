@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
               <button type="button" class="btn btn-primary" (click)="goToGroupModules()">Cadastro de Grupo de Modulos</button>
             </div>
             <div class="col-lg-4">
-              <button type="button" class="btn btn-primary">Cadastro de Grupo de Modulos</button>
+              <button type="button" class="btn btn-primary">Cadastro De Modulos</button>
             </div>
           </div>
           <br/>

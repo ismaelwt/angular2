@@ -1,7 +1,7 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from '../login/login.component';
-import { HomeComponent } from '../home/home.component';
+import { LoginComponent } from '../views/login/login.component';
+import { HomeComponent } from '../views/home/home.component';
 import { LoggedInGuard } from '../helper/LoggedInGuard';
 
 const appRoutes: Routes = [

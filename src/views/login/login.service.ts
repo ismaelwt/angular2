@@ -5,7 +5,7 @@ import {
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Router } from '@angular/router';
-import { User } from '../shared/models/user';
+import { Usuario } from '../../shared/models/usuario';
 
 @Injectable()
 export class LoginService {
@@ -19,7 +19,7 @@ export class LoginService {
   constructor(private http: Http, private router: Router, private opt: RequestOptions) {
   }
 
-  login(usuario: User) {
+  login(usuario: Usuario) {
 
     return this.http
       .post(this.url + 'login', JSON.stringify(usuario))

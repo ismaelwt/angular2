@@ -4,12 +4,17 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule, XHRBackend } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from '../login/login.component';
-import { HomeComponent } from '../home/home.component';
+import { LoginComponent } from '../views/login/login.component';
+import { HomeComponent } from '../views/home/home.component';
 
 import { ExtendedXHRBackend } from '../helper/ExtendedXHRBackend';
 import { LoggedInGuard } from '../helper/LoggedInGuard';
-import { LoginService } from '../login/login.service';
+import { LoginService } from '../views/login/login.service';
+
+//components
+import { NavBarComponent } from '../components/nav-bar.component/nav-bar.component'
+
+
 
 import { appRouting } from '../app/app.routing';
 
@@ -23,7 +28,8 @@ import 'rxjs/add/observable/throw';
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

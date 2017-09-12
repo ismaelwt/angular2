@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { Http } from '@angular/http';
-import { User } from '../shared/models/user';
+import { Usuario } from '../../shared/models/usuario';
 import { LoginService } from './login.service';
 
 @Component({
@@ -19,13 +19,13 @@ import { LoginService } from './login.service';
 })
 export class LoginComponent implements OnInit{
   
-  user:User;
+  user:Usuario;
   errorMessage:string = undefined;
 
   constructor(private service: LoginService){}
 
   ngOnInit(){
-    this.user = new User();
+    this.user = new Usuario();
   }
 
   logar () {
