@@ -42,4 +42,8 @@ export class EmpresaComponent implements OnInit {
   editar() {
     this.router.navigate(['empresa/', this.selected.id]);
   }
+
+  excluir() {
+    this.router.navigate(['empresa/', this.selected.id]);
+  }
 }
