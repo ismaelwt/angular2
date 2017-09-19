@@ -49,10 +49,6 @@ export class HomeComponent implements OnInit {
   }
 
   goToCompany(){
-    this.router.navigateByUrl('company');
-  }
-
-  goToGroupModules(){
-    this.router.navigateByUrl('group-module');
+    this.router.navigateByUrl('empresa');
   }
 }

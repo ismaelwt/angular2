@@ -1,0 +1,126 @@
+<div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+        <div class="panel panel-default">
+            <div class="panel-heading"> Cadastro de Empresas
+            </div>
+            <div class="panel-body">
+                <form #f role="form" name="form">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3">
+                            <div class="form-group">
+                                <label for="cnpj">CPF / CNPJ</label>
+                                <input type="text" [(ngModel)]="empresa.cnpj" class="form-control" name="cnpj" />
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3">
+                            <div class="form-group">
+                                <label for="nome">Nome</label>
+                                <input type="text" [(ngModel)]="empresa.nome" class="form-control" (change)="onChange()" type="text" maxlength="50" name="nome"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4">
+                            <div class="form-group">
+                                <label for="usuarioemail">Usuario Admin</label>
+                                <input id="usuario-email" type="text" disabled [(ngModel)]="usuario.email" class="form-control" name="usuarioemail" (click)="onCopy('usuario.email')" />
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-1 div-copy" >
+                                <label>&nbsp;</label>
+                                <br/>
+                                <span class="copy-link" (click)="onCopy('usuario-email')">Copiar</span>
+                            </div>
+                        <div class="col-lg-4 col-md-4">
+                            <div class="form-group">
+
+                                <label for="usuariopassword">Senha</label>
+                                <input id="usuario-senha" type="text" disabled [(ngModel)]="usuario.password" class="form-control"
+                                    name="usuariopassword"
+                                />
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-1 div-copy">
+                            <label>&nbsp;</label>
+                            <br/>
+                            <span class="copy-link" (click)="onCopy('usuario-senha')">Copiar</span>
+                        </div>
+                        <div class="col-lg-2 col-md-2">
+                            <label>&nbsp;</label>
+                            <br />
+                            <span class="alert-password">* Recomendamos que a senha seja alterada no ato do login com o novo Usuario.</span>
+                        </div>
+                    </div>
+
+                    <hr/>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3">
+                            <div class="form-group">
+                                <label required for="cep">CEP</label>
+                                <input type="text" [(ngModel)]="empresa.cep" class="form-control" required="true" name="cep" />
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3">
+                            <div class="form-group">
+                                <label for="endereco">Endereço</label>
+                                <input type="text" [(ngModel)]="empresa.endereco" class="form-control" required="true" name="endereco" />
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3">
+                            <div class="form-group">
+                                <label for="numero">Número</label>
+                                <input type="text" [(ngModel)]="empresa.numero" class="form-control" required name="numero" />
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3">
+                            <div class="form-group">
+                                <label for="complemento">Complemento</label>
+                                <input type="text" [(ngModel)]="empresa.complemento" class="form-control" name="complemento" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3">
+                            <div class="form-group">
+                                <label for="cidade">Cidade</label>
+                                <input type="text" [(ngModel)]="empresa.cidade" class="form-control" name="cidade" />
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3">
+                            <div class="form-group">
+                                <label for="bairro">Bairro</label>
+                                <input type="text" [(ngModel)]="empresa.bairro" class="form-control" required="true" name="bairro" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3">
+                            <div class="form-group">
+                                <label for="empresa.email">E-mail</label>
+                                <input type="text" [(ngModel)]="empresa.email" class="form-control" name="empresa.email" />
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3">
+                            <div class="form-group">
+                                <label for="remetenteTelefone">Telefone</label>
+                                <input type="text" [(ngModel)]="empresa.telefone" class="form-control" name="remetenteTelefone" maxlength="14" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <alert></alert>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <button id="button-salvar" class="btn btn-success" type="submit" (click)="onSubmit()">Salvar</button>
+                <button id="button-voltar" class="btn btn-default" (click)="back()">Voltar</button>
+            </div>
+        </div>
+    </div>
+</div>

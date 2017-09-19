@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule, XHRBackend } from '@angular/http';
+import { HttpModule, XHRBackend, BrowserXhr } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from '../views/login/login.component';
@@ -9,10 +9,22 @@ import { HomeComponent } from '../views/home/home.component';
 
 import { ExtendedXHRBackend } from '../helper/ExtendedXHRBackend';
 import { LoggedInGuard } from '../helper/LoggedInGuard';
+import { CustomBrowserXhr } from '../helper/CustomBrowserXhr';
+
+
+
 import { LoginService } from '../views/login/login.service';
+
+
+//modulos 
+import { EmpresaModule } from "../views/empresa/empresa.module";
+
 
 //components
 import { NavBarComponent } from '../components/nav-bar.component/nav-bar.component'
+
+//not-found
+import { NotFoundComponent } from "../views/not-found/not-found.component";
 
 
 
@@ -29,17 +41,20 @@ import 'rxjs/add/observable/throw';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    NavBarComponent
+    NavBarComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     appRouting,
-    FormsModule
+    FormsModule,
+    EmpresaModule
   ],
   providers: [
     LoginService,
     { provide: XHRBackend, useClass: ExtendedXHRBackend },
+    { provide: BrowserXhr, useClass: CustomBrowserXhr },
     LoggedInGuard
   ],
   bootstrap: [AppComponent]

@@ -7,5 +7,5 @@ import { LoginService } from '../views/login/login.service'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private user: LoginService) { }  
+  constructor(public user: LoginService) { }  
 }

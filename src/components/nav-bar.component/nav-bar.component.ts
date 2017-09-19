@@ -11,7 +11,7 @@ import { Usuario } from '../../shared/models/usuario';
         <div class="container-fluid">
           <div class="navbar-header user-nav">
             <a class="navbar-brand">
-              <span>{{user.name}}</span>
+              <span>{{user.nome}}</span>
             </a>
             <a class="navbar-brand">
             <span (click)="logout()">Logout</span>
@@ -38,6 +38,7 @@ import { Usuario } from '../../shared/models/usuario';
         left:0;
         width: 100%;
         top: 0;
+        z-index: 10000;
     }
   `]
 })
@@ -47,7 +48,7 @@ export class NavBarComponent implements OnInit {
 
     ngOnInit(){
       this.user = new Usuario();
-      this.user.name = localStorage.getItem('username');
+      this.user.nome = localStorage.getItem('username');
     }
 
     logout() {

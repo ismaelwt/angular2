@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { Usuario } from '../../shared/models/usuario';
 import { LoginService } from './login.service';
@@ -17,24 +17,32 @@ import { LoginService } from './login.service';
     }
   `]
 })
-export class LoginComponent implements OnInit{
-  
-  user:Usuario;
-  errorMessage:string = undefined;
+export class LoginComponent implements OnInit {
 
-  constructor(private service: LoginService){}
+  user: Usuario;
+  location: any;
+  errorMessage: string = undefined;
 
-  ngOnInit(){
+  constructor(private service: LoginService) { }
+
+  ngOnInit() {
     this.user = new Usuario();
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        this.location = position.coords;
+        console.log(position.coords);
+      });
+    }
   }
 
-  logar () {
+  logar() {
     this.service.login(this.user).subscribe(res => {
       this.errorMessage = res;
     });
   }
 
-  close(){
-    this.errorMessage = undefined; 
+  close() {
+    this.errorMessage = undefined;
   }
 }
