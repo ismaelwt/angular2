@@ -1,5 +1,6 @@
 
 import { Cidade } from './cidade';
+import { Usuario } from './usuario';
 
 export class Empresa  {
     id: string;
@@ -14,4 +15,5 @@ export class Empresa  {
     telefone:string;
     email:string;
     complemento:string;
+    usuario: Usuario;
 }

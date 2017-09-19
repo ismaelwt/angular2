@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 import { EmpresaService } from './empresa.service';
 import { Empresa } from '../../shared/models/empresa';
+import { AlertService } from "../../components/toast.component/alert.service";
 
 @Component({
   selector: 'empresas-page',
@@ -21,9 +22,16 @@ export class EmpresaComponent implements OnInit {
   empresas: Empresa[] = [];
   selected: Empresa;
 
-  constructor(private service: EmpresaService, private router: Router) { }
+  constructor(private service: EmpresaService, private router: Router,
+     private alertService: AlertService,
+     private activeRoute: ActivatedRoute
+    ) { }
 
   ngOnInit() {
+    this.findAll();
+  }
+
+  findAll(){
     this.service.findAll().subscribe(res => {
       if (res) {
         this.empresas = res;
@@ -43,7 +51,16 @@ export class EmpresaComponent implements OnInit {
     this.router.navigate(['empresa/', this.selected.id]);
   }
 
+  back(){
+    this.router.navigate(['home']);
+  }
+
   excluir() {
-    this.router.navigate(['empresa/', this.selected.id]);
+    this.service.deleteById(this.selected.id).subscribe((res)=>{
+      this.alertService.success('Empresa excluída com sucesso');
+      if (res) {
+        this.findAll();
+      }
+    })
   }
 }

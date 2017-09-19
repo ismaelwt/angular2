@@ -38,8 +38,9 @@ export class EmpresaShowComponent implements OnInit {
 
   empresa: Empresa;
   usuario: Usuario;
-  _message:string;
+  _message: string;
   private dom: Document;
+  edit: boolean = false;
 
 
 
@@ -47,8 +48,7 @@ export class EmpresaShowComponent implements OnInit {
     private router: Router,
     private service: EmpresaService,
     private activeRouter: ActivatedRoute,
-    @Inject(DOCUMENT) dom: Document,
-    private alertService:AlertService
+    @Inject(DOCUMENT) dom: Document
   ) {
     this.dom = dom;
   }
@@ -59,6 +59,7 @@ export class EmpresaShowComponent implements OnInit {
       let empresaId: string = params['id'];
 
       if (empresaId) {
+        this.edit = true;
         this.service.findById(empresaId).subscribe(empresa => {
           if (empresa) {
             this.empresa = empresa
@@ -80,14 +81,19 @@ export class EmpresaShowComponent implements OnInit {
     if (this.empresa.email) {
       this._message = "Não se preocupe, o usuario e senha já estão sendo enviados ao e-mail que foi informado, '" + this.usuario.email + "'";
     }
-    
 
-    this.service.save(this.empresa).subscribe((res) => {
-      if (res) {
-        this.alertService.success(this._message);
-        this.router.navigate(['empresa']);
-      }
-    });
+    if (!this.empresa.usuario) {
+
+      this.empresa.usuario = this.usuario;
+
+
+
+      this.service.save(this.empresa).subscribe((res) => {
+        if (res) {
+          this.router.navigate(['empresa']);
+        }
+      });
+    }
   }
 
   onChange() {
