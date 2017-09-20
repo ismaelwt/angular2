@@ -25,6 +25,8 @@ import { NavBarComponent } from '../components/nav-bar.component/nav-bar.compone
 
 //not-found
 import { NotFoundComponent } from "../views/not-found/not-found.component";
+import { AlertComponent } from '../components/toast.component/alert.directive'
+import { AlertService } from '../components/toast.component/alert.service'
 
 
 
@@ -42,7 +44,8 @@ import 'rxjs/add/observable/throw';
     LoginComponent,
     HomeComponent,
     NavBarComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +56,7 @@ import 'rxjs/add/observable/throw';
   ],
   providers: [
     LoginService,
+    AlertService,
     { provide: XHRBackend, useClass: ExtendedXHRBackend },
     { provide: BrowserXhr, useClass: CustomBrowserXhr },
     LoggedInGuard

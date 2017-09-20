@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 
 import { AlertService } from '../../components/toast.component/alert.service';
 import { AlertComponent } from '../../components/toast.component/alert.directive';
+
 import { EmpresaComponent } from './empresa.component';
 import { EmpresaShowComponent } from './show/empresa-show.component';
 import { EmpresaService } from './empresa.service';
@@ -22,13 +23,11 @@ import { empresaRouting } from './empresa.routing';
     ],
     declarations: [
       EmpresaShowComponent,
-      EmpresaComponent,
-      AlertComponent
+      EmpresaComponent
     ],
   
     providers: [
-        EmpresaService,
-        AlertService
+        EmpresaService
     ]
     
   })

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
 import { Http } from '@angular/http';
 import { Usuario } from '../../shared/models/usuario';
 import { LoginService } from './login.service';
+import { AlertService } from "../../components/toast.component/alert.service";
 
 @Component({
   selector: 'login-page',
@@ -23,17 +25,17 @@ export class LoginComponent implements OnInit {
   location: any;
   errorMessage: string = undefined;
 
-  constructor(private service: LoginService) { }
+  constructor(private service: LoginService, private alert:AlertService, private activeRoute:ActivatedRoute) { }
 
   ngOnInit() {
     this.user = new Usuario();
 
-    if (navigator.geolocation) {
+    /*if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
         this.location = position.coords;
         console.log(position.coords);
       });
-    }
+    }*/
   }
 
   logar() {
