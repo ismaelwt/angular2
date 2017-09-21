@@ -17,16 +17,28 @@ export class UsuarioService {
     constructor(private http: Http, private router: Router, private opt: RequestOptions) {
     }
 
-    save(Usuario: Usuario) {
+    save(Usuario: Usuario, queryParams?: any) {
+        let _url = new BaseUrl().getUrl() + 'usuario';
+
+        if (queryParams) {
+            for (var key in queryParams) {
+                if (queryParams.hasOwnProperty(key)) {
+                    _url += '?' + key + '=' + queryParams[key];
+                }
+            }
+        } else {
+            _url = new BaseUrl().getUrl() + 'usuario';
+        }
 
         return this.http
-            .post(this.url, JSON.stringify(Usuario))
+            .post(_url, JSON.stringify(Usuario))
             .map((res) => {
                 if (res) {
                     return res.json();
                 }
             }).catch((error: any) => Observable.throw(error.json() || 'Server error'));
     }
+
 
     findAll(): Observable<Usuario[]> {
 

@@ -38,6 +38,7 @@ export class UsuarioShowComponent implements OnInit {
     usuario: Usuario;
     empresa:Empresa;
     _message: string;
+    queryParam: any;
     private dom: Document;
     edit: boolean = false;
 
@@ -59,6 +60,7 @@ export class UsuarioShowComponent implements OnInit {
 
             if (usuarioId) {
                 this.edit = true;
+                this.queryParam = { id: usuarioId };
                 this.service.findById(usuarioId).subscribe(usuario => {
                     if (usuario) {
                         this.usuario = usuario
@@ -67,7 +69,6 @@ export class UsuarioShowComponent implements OnInit {
                 });
             }
             this.usuario = new Usuario();
-            this.empresa = new Empresa();
         });
     }
 
@@ -76,8 +77,7 @@ export class UsuarioShowComponent implements OnInit {
     }
 
     onSubmit() {
-
-        this.service.save(this.usuario).subscribe((res) => {
+        this.service.save(this.usuario, this.queryParam).subscribe((res) => {
             if (res) {
                 this.router.navigate(['usuario']);
             }

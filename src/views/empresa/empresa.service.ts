@@ -17,10 +17,21 @@ export class EmpresaService {
     constructor(private http: Http, private router: Router, private opt: RequestOptions) {
     }
 
-    save(empresa: Empresa) {
+    save(empresa: Empresa, queryParams?:any) {
+        let _url = new BaseUrl().getUrl() + 'empresa';
+
+        if (queryParams) {
+            for (var key in queryParams) {
+                if (queryParams.hasOwnProperty(key)) {
+                    _url += '?' + key + '='+ queryParams[key] ;
+                }
+            }
+        }else {
+            _url = new BaseUrl().getUrl() + 'empresa';
+        }
 
         return this.http
-            .post(this.url, JSON.stringify(empresa))
+            .post(_url, JSON.stringify(empresa))
             .map((res) => {
                 if (res) {
                     return res.json();

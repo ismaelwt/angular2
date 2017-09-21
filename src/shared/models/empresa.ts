@@ -3,7 +3,21 @@ import { Cidade } from './cidade';
 import { Usuario } from './usuario';
 
 export class Empresa  {
-    id: string;
+    constructor() {
+        this.nome = '';
+        this.cnpj = '';
+        this.cidade = new Cidade();
+        this.endereco  = '';;
+        this.cep = '';;
+        this.bairro = '';
+        this.numero = '';
+        this.ddd = '';
+        this.telefone = '';
+        this.email = '';
+        this.complemento = '';
+    }
+
+    id:string;
     nome:string;
     cnpj:string;
     cidade: Cidade;
@@ -16,4 +30,5 @@ export class Empresa  {
     email:string;
     complemento:string;
     usuario: Usuario;
+    
 }

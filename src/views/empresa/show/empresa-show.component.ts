@@ -40,6 +40,7 @@ export class EmpresaShowComponent implements OnInit {
   _message: string;
   private dom: Document;
   edit: boolean = false;
+  _queryParams: any;
 
 
 
@@ -58,6 +59,7 @@ export class EmpresaShowComponent implements OnInit {
       let empresaId: string = params['id'];
 
       if (empresaId) {
+        this._queryParams = { id: empresaId };
         this.edit = true;
         this.service.findById(empresaId).subscribe(empresa => {
           if (empresa) {
@@ -87,7 +89,7 @@ export class EmpresaShowComponent implements OnInit {
 
 
 
-      this.service.save(this.empresa).subscribe((res) => {
+      this.service.save(this.empresa, this._queryParams).subscribe((res) => {
         if (res) {
           this.router.navigate(['empresa']);
         }

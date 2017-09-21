@@ -54,5 +54,6 @@ export class EmpresaComponent implements OnInit {
   }
 
   excluir() {
+    this.service.deleteById(this.selected.id);
   }
 }
