@@ -1,6 +1,6 @@
 <div class="col-lg-12">
     <div class="panel panel-default">
-        <div class="panel-heading"><label>Cadastro de Empresas</label>
+        <div class="panel-heading"><label>Cadastro de Usuarios</label>
         </div>
         <div class="panel-body">
             <div class="btn-toolbar">
@@ -8,32 +8,27 @@
                 <button id="button-editar" type="button" class="btn btn-default" (click)="editar()">Editar</button>
                 <button id="button-excluir" type="button" class="btn btn-danger" (click)="excluir()">Excluir</button>
             </div>
-
             <hr />
             <div>
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>Razão Social</th>
-                            <th>Cnpj</th>
+                            <th>Nome</th>
                             <th>Email</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let empresa of empresas" [hidden]="empresa._isRoot" [ngClass]="{'setSelected': selected && selected.id === empresa.id}"
-                            (click)="setSelected(empresa)">
-                            <td>{{empresa.nome}}
-
-                            </td>
-                            <td>{{empresa.cnpj}}</td>
-                            <td>{{empresa.email}}</td>
+                        <tr *ngFor="let usuario of usuarios" [ngClass]="{'setSelected': selected && selected.id === usuario.id}"
+                            (click)="setSelected(usuario)">
+                            <td>{{usuario.nome}}</td>
+                            <td>{{usuario.email}}</td>
                         </tr>
                     </tbody>
                 </table>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="col-lg-offset-5">
-                            {{empresas.length}} / {{empresas.length}}
+                            {{usuarios.length}} / {{usuarios.length}}
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, XHRBackend, BrowserXhr } from '@angular/http';
@@ -18,6 +19,7 @@ import { LoginService } from '../views/login/login.service';
 
 //modulos 
 import { EmpresaModule } from "../views/empresa/empresa.module";
+import { UsuarioModule } from "../views/usuario/usuario.module";
 
 
 //components
@@ -25,11 +27,6 @@ import { NavBarComponent } from '../components/nav-bar.component/nav-bar.compone
 
 //not-found
 import { NotFoundComponent } from "../views/not-found/not-found.component";
-import { AlertComponent } from '../components/toast.component/alert.directive'
-import { AlertService } from '../components/toast.component/alert.service'
-
-
-
 import { appRouting } from '../app/app.routing';
 
 import 'rxjs/add/operator/map';
@@ -44,19 +41,19 @@ import 'rxjs/add/observable/throw';
     LoginComponent,
     HomeComponent,
     NavBarComponent,
-    NotFoundComponent,
-    AlertComponent
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpModule,
     appRouting,
     FormsModule,
-    EmpresaModule
+    UsuarioModule.forRoot(),
+    EmpresaModule.forRoot()
   ],
   providers: [
     LoginService,
-    AlertService,
     { provide: XHRBackend, useClass: ExtendedXHRBackend },
     { provide: BrowserXhr, useClass: CustomBrowserXhr },
     LoggedInGuard

@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+        <div class="panel panel-default">
+            <div class="panel-heading"> Cadastro de Usuario
+            </div>
+            <div class="panel-body">
+                <form #f role="form" name="form">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3">
+                            <div class="form-group">
+                                <label for="nome">Nome</label>
+                                <input type="text" [(ngModel)]="usuario.nome" class="form-control" name="nome" />
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" [(ngModel)]="usuario.email" class="form-control" type="text" maxlength="50" name="email" />
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3">
+                            <div class="form-group">
+                                <label for="empresa">Empresa</label>
+                                <input type="text" disabled [(ngModel)]="empresa.nome" class="form-control" type="text" maxlength="50" name="empresa" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-footer">
+                <button id="button-salvar" class="btn btn-success" type="submit" (click)="onSubmit()">Salvar</button>
+                <button id="button-voltar" class="btn btn-default" (click)="back()">Voltar</button>
+            </div>
+        </div>
+    </div>
+</div>

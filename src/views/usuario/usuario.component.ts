@@ -1,27 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
-import { EmpresaService } from './empresa.service';
-import { Empresa } from '../../shared/models/empresa';
+import { UsuarioService } from './usuario.service';
+import { Usuario } from '../../shared/models/usuario';
 
 @Component({
-  selector: 'empresas-page',
-  templateUrl: './empresa.component.html',
+  selector: 'usuario-page',
+  templateUrl: './usuario.component.html',
   styles: [`
-    .cmp {
-      padding:50px;  
-      width: 100%;
-    }
     .setSelected {
       background-color: #f6f6f6 !important;
     }
   `]
 })
-export class EmpresaComponent implements OnInit {
+export class UsuarioComponent implements OnInit {
 
-  empresas: Empresa[] = [];
-  selected: Empresa;
+  usuarios: Usuario[] = [];
+  selected: Usuario;
 
-  constructor(private service: EmpresaService, private router: Router,
+  constructor(private service: UsuarioService, private router: Router,
      private activeRoute: ActivatedRoute
     ) { }
 
@@ -32,7 +28,7 @@ export class EmpresaComponent implements OnInit {
   findAll(){
     this.service.findAll().subscribe(res => {
       if (res) {
-        this.empresas = res;
+        this.usuarios = res;
       }
     });
   }
@@ -42,11 +38,11 @@ export class EmpresaComponent implements OnInit {
   }
 
   inserir() {
-    this.router.navigateByUrl('empresa/add');
+    this.router.navigateByUrl('usuario/add');
   }
 
   editar() {
-    this.router.navigate(['empresa/', this.selected.id]);
+    this.router.navigate(['usuario/', this.selected.id]);
   }
 
   back(){

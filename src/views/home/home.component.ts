@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
               <button type="button" class="btn btn-primary" (click)="goToCompany()">Cadastro de Empresas</button>
             </div>
             <div class="col-lg-4">
-              <button type="button" class="btn btn-primary">Cadastro de Grupo de Modulos</button>
+              <button type="button" class="btn btn-primary" (click)="goToUsers()">Cadastro de Usuarios <-</button>
             </div>
             <div class="col-lg-4">
               <button type="button" class="btn btn-primary">Cadastro De Modulos</button>
@@ -50,5 +50,10 @@ export class HomeComponent implements OnInit {
 
   goToCompany(){
     this.router.navigateByUrl('empresa');
+  }
+
+
+  goToUsers(){
+    this.router.navigateByUrl('usuario');
   }
 }

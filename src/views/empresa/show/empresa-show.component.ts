@@ -5,7 +5,6 @@ import { EmpresaService } from "../empresa.service";
 import { Empresa } from "../../../shared/models/empresa";
 import { Guid } from "../../../helper/guid";
 import { Usuario } from "../../../shared/models/usuario";
-import { AlertService } from "../../../components/toast.component/alert.service";
 
 @Component({
   selector: 'empresa-show-page',
