@@ -1,6 +1,7 @@
 import { Empresa } from './empresa';
 
 export class Usuario  {
+    
     constructor() {
         this.nome = '';
         this.email = '';
