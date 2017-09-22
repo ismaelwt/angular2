@@ -54,10 +54,15 @@ export class LoginService {
   }
 
   logout() {
-    localStorage.clear();
-    this._loggedIn.next(false);
-    this.router.navigate(['']);
+    return this.http
+      .post(this.url + 'logout', {})
+      .map((res) => {
 
+        localStorage.clear();
+        this._loggedIn.next(false);
+        this.router.navigate(['']);
+
+      }).catch((error: any) => Observable.throw(error.json() || 'Server error'))
   }
 
   isLoggedIn() {

@@ -53,6 +53,8 @@ export class NavBarComponent implements OnInit {
     }
 
     logout() {
-      this.service.logout();
+      this.service.logout().subscribe(res => {
+        console.log('callback');
+      });
     }
   }
