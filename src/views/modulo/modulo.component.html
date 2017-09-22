@@ -1,6 +1,6 @@
 <div class="col-lg-12">
     <div class="panel panel-default">
-        <div class="panel-heading"><label>Cadastro de Grupo De Modulo</label>
+        <div class="panel-heading"><label>Cadastro de Modulos</label>
         </div>
         <div class="panel-body">
             <div class="btn-toolbar">
@@ -8,7 +8,6 @@
                 <button id="button-editar" type="button" class="btn btn-default" (click)="editar()">Editar</button>
                 <button id="button-excluir" type="button" class="btn btn-danger" (click)="excluir()">Excluir</button>
             </div>
-
             <hr />
             <div>
                 <table class="table table-hover">
@@ -18,16 +17,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let grupo of grupos" [ngClass]="{'setSelected': selected && selected.id === grupo.id}"
-                            (click)="setSelected(grupo)">
-                            <td>{{grupo.nome}}</td>
+                        <tr *ngFor="let modulo of modulos" [ngClass]="{'setSelected': selected && selected.id === modulo.id}"
+                            (click)="setSelected(modulo)">
+                            <td>{{modulo.nome}}</td>
                         </tr>
                     </tbody>
                 </table>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="col-lg-offset-5">
-                            {{grupos.length}} / {{grupos.length}}
+                            {{modulos.length}} / {{modulos.length}}
                         </div>
                     </div>
                 </div>

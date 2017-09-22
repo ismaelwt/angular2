@@ -20,7 +20,8 @@ import { LoginService } from '../views/login/login.service';
 //modulos 
 import { EmpresaModule } from "../views/empresa/empresa.module";
 import { UsuarioModule } from "../views/usuario/usuario.module";
-
+import { GrupoDeModulo } from "../views/grupo-de-modulo/grupos-de-modulo.module";
+import { ModuloModule } from '../views/modulo/modulo.module';
 
 //components
 import { NavBarComponent } from '../components/nav-bar.component/nav-bar.component'
@@ -33,7 +34,6 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise'
 import 'rxjs/add/operator/catch'
 import 'rxjs/add/observable/throw';
-import { GrupoDeModulo } from '../views/grupo-de-modulo/grupos-de-modulo.module';
 
 
 @NgModule({
@@ -52,7 +52,8 @@ import { GrupoDeModulo } from '../views/grupo-de-modulo/grupos-de-modulo.module'
     FormsModule,
     UsuarioModule.forRoot(),
     EmpresaModule.forRoot(),
-    GrupoDeModulo.forRoot()
+    GrupoDeModulo.forRoot(),
+    ModuloModule.forRoot()
   ],
   providers: [
     LoginService,

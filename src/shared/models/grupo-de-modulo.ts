@@ -1,4 +1,4 @@
-import { Empresa } from "../../shared/models/empresa";
+import { Empresa } from './empresa';
 
 export class GrupoDeModulo {
     constructor() {

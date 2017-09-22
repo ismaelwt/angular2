@@ -10,7 +10,6 @@ import { GrupoDeModuloService } from './grupo-de-modulo.service';
 import { grupoDeModuloRouting } from './grupo-de-modulo.routing';
 
 
-
 @NgModule({
     imports: [
         BrowserModule,

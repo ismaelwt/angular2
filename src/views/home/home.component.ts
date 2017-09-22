@@ -12,22 +12,19 @@ import { Router } from '@angular/router';
               <button type="button" class="btn btn-primary" (click)="goToCompany()">Cadastro de Empresas</button>
             </div>
             <div class="col-lg-4">
-              <button type="button" class="btn btn-primary" (click)="goToUsers()">Cadastro de Usuarios <-</button>
+              <button type="button" class="btn btn-primary" (click)="goToUsers()">Cadastro de Usuarios</button>
             </div>
             <div class="col-lg-4">
-              <button type="button" class="btn btn-primary">Cadastro De Modulos</button>
+              <button type="button" class="btn btn-primary" (click)="goToGrupoDeModulo()">Cadastro De Grupo de Modulos</button>
             </div>
           </div>
           <br/>
           <div class="row">
           <div class="col-lg-4">
-            <button type="button" class="btn btn-primary">Cadastro de Modulos</button>
+            <button type="button" class="btn btn-primary" (click)="goToModulo()">Cadastro De Modulos</button>
           </div>
           <div class="col-lg-4">
             <button type="button" class="btn btn-primary">Cadastro de Programas</button>
-          </div>
-          <div class="col-lg-4">
-            <button type="button" class="btn btn-primary">Cadastro de Usuarios</button>
           </div>
         </div>
         </div>
@@ -55,5 +52,13 @@ export class HomeComponent implements OnInit {
 
   goToUsers(){
     this.router.navigateByUrl('usuario');
+  }
+
+  goToGrupoDeModulo(){
+    this.router.navigateByUrl('grupo-de-modulo');
+  }
+
+  goToModulo() {
+   this.router.navigateByUrl('modulo'); 
   }
 }
