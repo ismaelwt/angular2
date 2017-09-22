@@ -33,6 +33,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise'
 import 'rxjs/add/operator/catch'
 import 'rxjs/add/observable/throw';
+import { GrupoDeModulo } from '../views/grupo-de-modulo/grupos-de-modulo.module';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import 'rxjs/add/observable/throw';
     appRouting,
     FormsModule,
     UsuarioModule.forRoot(),
-    EmpresaModule.forRoot()
+    EmpresaModule.forRoot(),
+    GrupoDeModulo.forRoot()
   ],
   providers: [
     LoginService,

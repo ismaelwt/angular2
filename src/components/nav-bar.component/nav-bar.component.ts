@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../views/login/login.service';
 import { Usuario } from '../../shared/models/usuario';
+import { EmpresaService } from "../../views/empresa/empresa.service";
 
 @Component({
   selector: 'nav-bar',

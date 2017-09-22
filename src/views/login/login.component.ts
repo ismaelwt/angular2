@@ -4,7 +4,6 @@ import { Http } from '@angular/http';
 import { Usuario } from '../../shared/models/usuario';
 import { LoginService } from './login.service';
 
-
 @Component({
   selector: 'login-page',
   templateUrl: './login.component.html',
