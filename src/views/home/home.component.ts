@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
         <div class="col-lg-12">
           <div class="row">
             <div class="col-lg-4">
-              <button type="button" class="btn btn-primary" (click)="goToCompany()">Cadastro de Empresas</button>
+              <button type="button" class="btn btn-primary" *ngIf="root" (click)="goToCompany()">Cadastro de Empresas</button>
             </div>
             <div class="col-lg-4">
               <button type="button" class="btn btn-primary" (click)="goToUsers()">Cadastro de Usuarios</button>
@@ -40,9 +40,17 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+  root:boolean = false;
+
   constructor(private router:Router) { }
 
   ngOnInit() {
+    
+    let t = <boolean> localStorage.getItem('root');
+      
+     if (!t == false) {
+       this.root = false;
+     }
   }
 
   goToCompany(){

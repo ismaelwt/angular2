@@ -45,6 +45,7 @@ export class LoginService {
             localStorage.setItem('username', res.json().nome);
             localStorage.setItem('email', res.json().email);
             localStorage.setItem('empresaId', res.json().EmpresaId);
+            localStorage.setItem('root', res.json().Empresa._isRoot);
             this.router.navigate(['/home']);
           }
         } else {

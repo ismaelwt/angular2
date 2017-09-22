@@ -20,7 +20,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let empresa of empresas" [hidden]="empresa._isRoot" [ngClass]="{'setSelected': selected && selected.id === empresa.id}"
+                        <tr *ngFor="let empresa of empresas" [ngClass]="{'setSelected': selected && selected.id === empresa.id}"
                             (click)="setSelected(empresa)">
                             <td>{{empresa.nome}}
 
